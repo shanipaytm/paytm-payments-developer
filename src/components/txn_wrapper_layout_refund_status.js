@@ -67,7 +67,7 @@ paytmParams.put(<span class="hljs-string">"ORDERID"</span>, orderId);
 https://securegw-stage.paytm.in/refund/HANDLER_INTERNAL/getRefundStatus -H
 <span class="hljs-string">'JsonData={"MID":"rxazcv89315285244163",
 "ORDERID":"order1","REFID":"reforder1",
-"CHECKSUM":"b%2BhFyBK9XUc8Sa%2BVzv7QFNoOQp%2FepntTjl15SQ%2FssJnJGbDfLAY9RIbLsYM9D5c3P0c44vQeB5b1A3qoGDStO6QjfdwpwxafS4wm8%2B%2B8S6k%3D"}'</span></code></pre>   
+"CHECKSUMHASH":"b%2BhFyBK9XUc8Sa%2BVzv7QFNoOQp%2FepntTjl15SQ%2FssJnJGbDfLAY9RIbLsYM9D5c3P0c44vQeB5b1A3qoGDStO6QjfdwpwxafS4wm8%2B%2B8S6k%3D"}'</span></code></pre>   
 `
         }
     }
@@ -197,61 +197,61 @@ paytmParams.Add(<span class="hljs-string">"REFID"</span>,refId);
     }
     render() {
         return (
-        <div className={`full-container`}>
-            <div className={`${style.apiMain} grid`}>
-                <div className={`${style.apiWrapper}`}> {this.props.children} </div>
-                <div className={`${style.editorWrapper}`}>
-                    <h2>Endpoints</h2>
-                    <p className={` grid justify-between`}><span>Staging:</span> <span>https://securegw-stage.paytm.in/refund/HANDLER_INTERNAL/getRefundStatus</span></p>
-                    <p className={` grid justify-between`}><span>Production:</span> <span>https://securegw.paytm.in/refund/HANDLER_INTERNAL/getRefundStatus </span></p>
-                    <h6 className={` grid justify-center align-center`}><span>Request Code</span>
-                        <label className={`${style.switch}`}>
-                            < input type="checkbox"
-                                id="checkbox"
-                                onChange={
-                                    this.handleChange
-                                }
-                            />
-                            <div className={`${style.slider} ${style.round}`}></div>
-                        </label>
-                        <span>Response JSON</span>
-                    </h6>
-                    {!this.state.checked ?
-                        <TabProvider defaultTab="one">
-                            <TabList>
-                                <Tab tabFor="one">CURL</Tab>
-                                <Tab tabFor="two">JAVA</Tab>
-                                <Tab tabFor="three">.NET</Tab>
-                                <Tab tabFor="four">PHP</Tab>
-                            </TabList>
-                            <TabPanel tabId="one">
-                                <span dangerouslySetInnerHTML={this.getCurlHTML()}></span>
-                            </TabPanel>
-                            <TabPanel tabId="two">
-                                <span dangerouslySetInnerHTML={this.getJavaHTML()}></span>
-                            </TabPanel>
-                            <TabPanel tabId="three">
-                                <span dangerouslySetInnerHTML={this.getNetHTML()}></span>
-                            </TabPanel>
-                            <TabPanel tabId="four">
-                                <span dangerouslySetInnerHTML={this.getPHPHTML()}></span>
-                            </TabPanel>
-                        </TabProvider> : null}
-                    {
-                        this.state.checked ?
-                            <TabProvider defaultTab="success" >
-                                <TabList >
-                                    <Tab tabFor="success" > Success </Tab> <Tab tabFor="error" > Error </Tab > </TabList> <TabPanel tabId="success" > 
-                                   <span dangerouslySetInnerHTML={this.getSuccessHTML()}></span>
-                                </TabPanel> <TabPanel tabId="error" >
-                                     <span dangerouslySetInnerHTML={this.getErrorHTML()}></span>
+            <div className={`full-container`}>
+                <div className={`${style.apiMain} grid`}>
+                    <div className={`${style.apiWrapper}`}> {this.props.children} </div>
+                    <div className={`${style.editorWrapper}`}>
+                        <h2>Endpoints</h2>
+                        <p className={` grid justify-between`}><span>Staging:</span> <span>https://securegw-stage.paytm.in/refund/HANDLER_INTERNAL/getRefundStatus</span></p>
+                        <p className={` grid justify-between`}><span>Production:</span> <span>https://securegw.paytm.in/refund/HANDLER_INTERNAL/getRefundStatus </span></p>
+                        <h6 className={` grid justify-center align-center`}><span>Request Code</span>
+                            <label className={`${style.switch}`}>
+                                < input type="checkbox"
+                                    id="checkbox"
+                                    onChange={
+                                        this.handleChange
+                                    }
+                                />
+                                <div className={`${style.slider} ${style.round}`}></div>
+                            </label>
+                            <span>Response JSON</span>
+                        </h6>
+                        {!this.state.checked ?
+                            <TabProvider defaultTab="one">
+                                <TabList>
+                                    <Tab tabFor="one">CURL</Tab>
+                                    <Tab tabFor="two">JAVA</Tab>
+                                    <Tab tabFor="three">.NET</Tab>
+                                    <Tab tabFor="four">PHP</Tab>
+                                </TabList>
+                                <TabPanel tabId="one">
+                                    <span dangerouslySetInnerHTML={this.getCurlHTML()}></span>
                                 </TabPanel>
-                            </TabProvider> : null
-                    }
+                                <TabPanel tabId="two">
+                                    <span dangerouslySetInnerHTML={this.getJavaHTML()}></span>
+                                </TabPanel>
+                                <TabPanel tabId="three">
+                                    <span dangerouslySetInnerHTML={this.getNetHTML()}></span>
+                                </TabPanel>
+                                <TabPanel tabId="four">
+                                    <span dangerouslySetInnerHTML={this.getPHPHTML()}></span>
+                                </TabPanel>
+                            </TabProvider> : null}
+                        {
+                            this.state.checked ?
+                                <TabProvider defaultTab="success" >
+                                    <TabList >
+                                        <Tab tabFor="success" > Success </Tab> <Tab tabFor="error" > Error </Tab > </TabList> <TabPanel tabId="success" >
+                                        <span dangerouslySetInnerHTML={this.getSuccessHTML()}></span>
+                                    </TabPanel> <TabPanel tabId="error" >
+                                        <span dangerouslySetInnerHTML={this.getErrorHTML()}></span>
+                                    </TabPanel>
+                                </TabProvider> : null
+                        }
 
+                    </div>
                 </div>
             </div>
-        </div>
 
         );
     }
